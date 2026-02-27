@@ -40,9 +40,9 @@ class AdminController extends Controller
     /**
      * Display admin dashboard
      */
-    public function dashboard(): View
+    public function dashboard()
     {
-        return view('admin.dashboard');
+        return redirect()->route('admin.packages.index');
     }
 
     /**
