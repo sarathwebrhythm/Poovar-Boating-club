@@ -4,6 +4,7 @@ namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
 use Illuminate\View\View;
+use App\Models\Package;
 
 class UserController extends Controller
 {
@@ -12,7 +13,10 @@ class UserController extends Controller
      */
     public function index(): View
     {
-        $test = "Hello from UserController!";
-        return view('user.landing', compact('test'));
+              $packages = Package::where('status', 1)
+                            ->orderBy('order')
+                            ->get();
+
+        return view('user.landing', compact('packages'));
     }
 }
