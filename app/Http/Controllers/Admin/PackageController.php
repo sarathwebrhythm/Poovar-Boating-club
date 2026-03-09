@@ -43,6 +43,8 @@ class PackageController extends Controller
         'pricing_type'      => 'required|in:fixed,flexible',
         'details'           => 'required',
         'image'             => 'nullable|image|mimes:jpg,jpeg,png,webp|max:2048',
+        'is_custom_people'  => 'nullable|boolean',
+        'people_count' => 'nullable|required_if:is_custom_people,0|integer|min:1',
     ]);
 
     // Conditional validation
@@ -123,7 +125,9 @@ class PackageController extends Controller
         'short_description' => $request->short_description,
         'image'             => $imagePath,
         'image_alt'         => $request->image_alt,
-        'pricing_type'      => $request->pricing_type,
+        
+        'is_custom_people' => $request->boolean('is_custom_people'),
+         'people_count' => $request->boolean('is_custom_people') ? null : $request->people_count,
 
         // Fixed
         'price'             => $request->pricing_type === 'fixed' ? $request->price : null,
@@ -166,6 +170,8 @@ class PackageController extends Controller
         'pricing_type'      => 'required|in:fixed,flexible',
         'details'           => 'required',
         'image'             => 'nullable|image|mimes:jpg,jpeg,png,webp|max:2048',
+        'is_custom_people' => 'nullable|boolean',
+        'people_count' => 'nullable|required_if:is_custom_people,0|integer|min:1',
     ]);
 
     if ($request->pricing_type === 'fixed') {
@@ -249,7 +255,9 @@ class PackageController extends Controller
         'short_description' => $request->short_description,
         'image'             => $imagePath,
         'image_alt'         => $request->image_alt,
-        'pricing_type'      => $request->pricing_type,
+        
+        'is_custom_people' => $request->boolean('is_custom_people'),
+        'people_count' => $request->boolean('is_custom_people') ? null : $request->people_count,
 
         // Fixed
         'price'             => $request->pricing_type === 'fixed' ? $request->price : null,

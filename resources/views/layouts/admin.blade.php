@@ -37,9 +37,16 @@
 
         <!-- Menu -->
         <nav class="p-4 space-y-2">
+                <!-- Dashboard -->
+            <a href="{{ route('admin.dashboard') }}"
+               class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-slate-700 transition">
+
+                <i class="material-icons-round">dashboard</i>
+                 <span>Dashboard</span>
+            </a>
 
             <!-- Packages -->
-            <a href=""
+            <a href="{{ route('admin.packages.index') }}"
                class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-slate-700 transition">
 
                 <i class="material-icons-round">inventory_2</i>

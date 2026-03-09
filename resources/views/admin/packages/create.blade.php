@@ -113,7 +113,34 @@
     </div>
 
 </div>
+<!-- limit the count of people -->
+<div class="mb-4">
 
+    <input type="hidden" name="is_custom_people" value="0">
+
+    <label class="flex items-center mb-2">
+        <input type="checkbox"
+               name="is_custom_people"
+               value="1"
+               id="customPeopleCheckbox"
+               class="mr-2"
+               checked>
+        Allow user to set pax (Untick if fixed)
+    </label>
+
+    <div id="peopleCountField">
+        <label class="block text-gray-700 text-sm font-bold mb-2">
+            Fixed Number of People
+        </label>
+
+        <input type="number"
+               name="people_count"
+               min="1"
+               class="shadow border rounded w-full py-2 px-3"
+               placeholder="Example: 1 or 2">
+    </div>
+
+</div>
 
 <!-- Flexible Pricing Section -->
 <div id="flexibleSection" class="mb-4 hidden">
@@ -255,6 +282,25 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     toggleSections(); // run on page load
+});
+</script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+
+    const checkbox = document.getElementById('customPeopleCheckbox');
+    const peopleField = document.getElementById('peopleCountField');
+
+    function togglePeopleField() {
+        if (checkbox.checked) {
+            peopleField.style.display = 'none';
+        } else {
+            peopleField.style.display = 'block';
+        }
+    }
+
+    checkbox.addEventListener('change', togglePeopleField);
+
+    togglePeopleField(); 
 });
 </script>
 @endpush

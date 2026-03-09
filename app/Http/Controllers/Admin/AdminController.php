@@ -42,7 +42,7 @@ class AdminController extends Controller
      */
     public function dashboard()
     {
-        return redirect()->route('admin.packages.index');
+         return view('admin.dashboard');
     }
 
     /**
