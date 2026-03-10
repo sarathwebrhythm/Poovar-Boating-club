@@ -174,9 +174,15 @@
             {!! $packages->links() !!}
 
         </div>
+            <div class="flex justify-between">
+        <a href="{{ route('admin.dashboard') }}" class="text-blue-500">Back</a>
+  
+      </div>
 
     </div>
+  
 
 </div>
+    
 
 @endsection

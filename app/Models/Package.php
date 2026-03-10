@@ -11,6 +11,8 @@ class Package extends Model
         'short_description',
         'image',
         'image_alt',
+        'is_custom_people',
+        'people_count',
 
         // Pricing
         'pricing_type',
