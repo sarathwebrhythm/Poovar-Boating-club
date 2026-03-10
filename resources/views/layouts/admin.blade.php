@@ -86,18 +86,7 @@
     <!-- Main Content -->
     <main class="flex-1 ml-64 p-6">
 
-        <!-- Top Bar -->
-        <!-- <div class="flex justify-between items-center mb-6">
 
-            <h1 class="text-2xl font-bold">@yield('title')</h1>
-
-            <div class="flex items-center gap-3 text-gray-600">
-
-                <i class="material-icons-round">person</i>
-                {{ auth()->user()->name ?? 'Admin' }}
-
-            </div>
-        </div> -->
 
 
         <!-- Page Content -->
