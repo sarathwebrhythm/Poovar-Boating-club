@@ -19,4 +19,8 @@ class UserController extends Controller
 
         return view('user.landing', compact('packages'));
     }
+
+    public function paymentSuccess() {
+        return view('success');
+    }
 }
