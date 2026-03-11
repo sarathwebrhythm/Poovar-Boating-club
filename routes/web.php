@@ -2,10 +2,14 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\User\UserController;
+use App\Http\Controllers\User\PackageController;
 use App\Http\Controllers\Admin\AdminController;
 
 // User Routes (Public/Not authenticated)
 Route::get('/', [UserController::class, 'index'])->name('user.index');
+//Package details route
+Route::get('/package-details/{id}', [PackageController::class, 'show'])->name('user.package.detail');
+Route::get('/success', [UserController::class, 'paymentSuccess'])->name('success');
 
 // Admin Routes (Password authenticated)
 Route::prefix('admin')->name('admin.')->group(function () {
@@ -23,4 +27,7 @@ Route::prefix('admin')->name('admin.')->group(function () {
 
      // package
     Route::resource('packages', App\Http\Controllers\Admin\PackageController::class);
+   
+
+   
 });

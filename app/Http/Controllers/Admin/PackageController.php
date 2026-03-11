@@ -295,4 +295,5 @@ class PackageController extends Controller
             ->route('admin.packages.index')
             ->with('success', 'Package deleted successfully.');
     }
+    
 }
