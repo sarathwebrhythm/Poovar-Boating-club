@@ -31,7 +31,7 @@
 <section class="py-5" style="margin-top:120px;">
     <div class="container">
 
-        <!-- ROW 1 : IMAGE + FORM -->
+        
         <div class="row align-items-start">
 
             <!-- IMAGE -->
@@ -45,36 +45,38 @@
             <div class="col-lg-5 col-md-12 mb-4 order-1 order-lg-2">
 
                 <div class="card shadow p-4 sticky-top"
-                    style="top:120px; border:2px solid #086fb6;">
+                    style="top:120px; border:2px solid #00ba16;">
 
                     <h3 class="mb-4">Book This Package</h3>
 
-                    <form id="bookingForm">
+                    <form id="bookingForm" action="{{ route('user.booking.store') }}" method="POST">
+                    @csrf
+                        <input type="hidden" name="package_id" value="{{ $package->id }}">
 
                         <div class="mb-3">
                             <label>Name</label>
-                            <input type="text" id="name" class="form-control" placeholder="Enter your full name" required>
+                            <input type="text" name="name" id="name" class="form-control" placeholder="Enter your full name" required>
                         </div>
 
                         <div class="mb-3">
                             <label>Phone</label>
-                            <input type="text" id="phone" class="form-control"  pattern="[0-9]{10}" maxlength="10" placeholder="Enter phone number" required 
+                            <input type="text" name="phone" id="phone" class="form-control"  pattern="[0-9]{10}" maxlength="10" placeholder="Enter phone number" required 
                             oninvalid="this.setCustomValidity('Please enter a 10 digit phone number')"
                             oninput="this.setCustomValidity('')">
                         </div>
 
                         <div class="mb-3">
                             <label>Email</label>
-                            <input type="email" id="email" class="form-control" placeholder="Enter your email" required>
+                            <input type="email" name="email" id="email" class="form-control" placeholder="Enter your email" required>
                         </div>
-                        <input type="hidden" id="packageName" value="{{ $package->name }}">
+                        
 
                         @if($package->pricing_type == 'flexible')
 
                         <div class="mb-3">
                             <label>Duration</label>
 
-                            <select class="form-select" id="duration">
+                            <select class="form-select" name="duration" id="duration">
 
                                 @for($i = $package->base_duration; $i <= $package->max_duration; $i += $package->increment_minutes)
 
@@ -94,20 +96,23 @@
                             <label>Duration</label>
 
                             <input type="text"
+                           
                                 class="form-control"
                                 value="{{ $package->duration }} minutes"
                                 readonly>
+                                <input type="hidden" name="duration" value="{{ $package->duration }}">
 
                         </div>
 
                         @endif
                         <!-- People -->
                         <div class="mb-3">
-                            <label>People</label>
+                            <label>Number Of People</label>
 
                             @if($package->is_custom_people || $package->pricing_type == 'flexible')
 
                             <input type="number"
+                            name="people"
                                 id="people"
                                 class="form-control"
                                 min="1"
@@ -120,6 +125,7 @@
                                 class="form-control"
                                 value="{{ $package->people_count }}"
                                 readonly>
+                                <input type="hidden" name="people" value="{{ $package->people_count }}">
 
                             @endif
 
@@ -129,6 +135,7 @@
                             <label>Price</label>
                             <input type="text"
                                 class="form-control"
+                               
                                 id="price"
                                 data-price="{{ $package->price }}"
                                 data-base-duration="{{ $package->base_duration }}"
@@ -139,7 +146,7 @@
                                 readonly>
                         </div>
                         <small id="boatMessage" class="text-muted"></small>
-                        <button class="btn btn-primary w-100" style="border-radius: 1.5rem;">
+                        <button type="button" id="confirmBtn" class="btn btn-primary w-100" style="border-radius: 1.5rem;">
                             Book Now
                         </button>
 
@@ -173,7 +180,43 @@
 
     </div>
 </section>
+<!-- pop model for confirmation -->
+<div class="modal fade" id="confirmModal" tabindex="-1">
+  <div class="modal-dialog modal-dialog-centered" style="max-width:420px;">
 
+    <div class="modal-content">
+
+      <div class="modal-header">
+        <h5 class="modal-title">Confirm Your Booking</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+
+      <div class="modal-body">
+
+        <p><strong>Package:</strong> {{ $package->name }}</p>
+        <p><strong>Name:</strong> <span id="confirmName"></span></p>
+        <p><strong>Phone:</strong> <span id="confirmPhone"></span></p>
+        <p><strong>Email:</strong> <span id="confirmEmail"></span></p>
+        <p><strong>People:</strong> <span id="confirmPeople"></span></p>
+        <p><strong>Duration:</strong> <span id="confirmDuration"></span></p>
+        <p><strong>Total Price:</strong> <span id="confirmPrice"></span></p>
+
+      </div>
+
+      <div class="modal-footer">
+        <button class="btn btn-secondary" data-bs-dismiss="modal">
+          Edit
+        </button>
+
+        <button id="payNowBtn" class="btn btn-success">
+          Pay Now
+        </button>
+      </div>
+
+    </div>
+
+  </div>
+</div>
 
 @push('scripts')
 <script>
@@ -221,7 +264,8 @@
 
         // BOAT MESSAGE
         if (people > 8) {
-            boatMessage.innerText = `For ${people} people, ${boats} boats needed.`;
+            boatMessage.innerText = ` You need ${boats} boats for ${people} peoples ,Each boats can carry upto 8 people`;
+           
         } else {
             boatMessage.innerText = "";
         }
@@ -240,38 +284,56 @@
     // run on load
     calculatePrice();
 </script>
-<script>
-    const form = document.getElementById('bookingForm');
 
-    form.addEventListener('submit', function(e) {
-
-        e.preventDefault();
-
-        const name = document.getElementById('name').value;
-        const phone = document.getElementById('phone').value;
-        const email = document.getElementById('email').value;
-
-        const peopleElement = document.getElementById('people');
-        const people = peopleElement ? peopleElement.value : "{{ $package->people_count }}";
-
-        const price = document.getElementById('price').value;
-        const packageName = document.getElementById('packageName').value;
-
-        console.log("Package:", packageName);
-        console.log("Name:", name);
-        console.log("Phone:", phone);
-        console.log("Email:", email);
-        console.log("People:", people);
-        console.log("Price:", price);
-
-    });
-</script>
 <script>
 document.getElementById("name").addEventListener("input", function () {
     this.value = this.value.replace(/^\s+/, '');
 });
 document.getElementById("phone").addEventListener("input", function () {
     this.value = this.value.replace(/[^0-9]/g, '').slice(0,10);
+});
+</script>
+
+<script>
+const confirmBtn = document.getElementById("confirmBtn");
+const form = document.getElementById("bookingForm");
+const modal = new bootstrap.Modal(document.getElementById('confirmModal'));
+
+confirmBtn.addEventListener("click", function(){
+
+    // Validate form first
+    if (!form.checkValidity()) {
+        form.reportValidity(); // show browser validation messages
+        return;
+    }
+
+    document.getElementById("confirmName").innerText =
+        document.getElementById("name").value;
+
+    document.getElementById("confirmPhone").innerText =
+        document.getElementById("phone").value;
+
+    document.getElementById("confirmEmail").innerText =
+        document.getElementById("email").value;
+
+    const peopleElement = document.getElementById("people");
+    const people = peopleElement ? peopleElement.value : "{{ $package->people_count }}";
+
+    document.getElementById("confirmPeople").innerText = people;
+
+    const durationElement = document.getElementById("duration");
+    const duration = durationElement ? durationElement.value : "{{ $package->duration }}";
+
+    document.getElementById("confirmDuration").innerText = duration + " minutes";
+
+    document.getElementById("confirmPrice").innerText =
+        document.getElementById("price").value;
+
+    modal.show();
+});
+
+document.getElementById("payNowBtn").addEventListener("click", function(){
+    form.submit();
 });
 </script>
 @endpush
