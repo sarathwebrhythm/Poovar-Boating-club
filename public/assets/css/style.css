@@ -19650,6 +19650,7 @@ iframe {
 .bg-intro { 
   background: url(../img/fenlake-banner.jpg.jpeg) center center no-repeat;
   height: 100vh;
+  background-size: cover;
 }
 .bg-intro .contentWrapper {
   display: flex;

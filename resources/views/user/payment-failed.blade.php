@@ -1,6 +1,7 @@
 @extends('layouts.user')
 
-@section('title', 'Thank You | Poovar Boating Club')
+@section('title', 'Payment Failed | Poovar Boating Club')
+
 @section('header')
 <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3 d-block"
   data-navbar-on-scroll="data-navbar-on-scroll">
@@ -26,6 +27,8 @@
   </div>
 </nav>
 @endsection
+
+
 @section('content')
 
 <section class="bg-intro d-flex align-items-center justify-content-center"
@@ -33,29 +36,30 @@
 
     <div class="gradient"></div>
 
-    <div class="container text-center" style="margin-top: 100px;">
+    <div class="container text-center" style="margin-top:100px;">
 
-        {{-- Success Icon --}}
+        {{-- Failed Icon --}}
         <div class="mb-4">
-            <div style="width:80px;height:80px;background:#28a745;border-radius:50%;
+            <div style="width:80px;height:80px;background:#dc3545;border-radius:50%;
                         display:flex;align-items:center;justify-content:center;margin:auto;">
-                <i class="fas fa-check text-white" style="font-size:32px;"></i>
+                <i class="fas fa-times text-white" style="font-size:32px;"></i>
             </div>
         </div>
 
-        {{-- Smaller Heading --}}
+        {{-- Heading --}}
         <h1 class="text-white fw-bold" style="font-size:48px;">
-            Thank You for Your Booking!
+            Sorry! Payment Failed
         </h1>
 
-        {{-- Sub Text --}}
+        {{-- Message --}}
         <p class="text-white mt-3 mb-4" style="font-size:18px;">
-            Your request has been successfully submitted.<br>
-            Our team will contact you shortly.
+            Your payment could not be completed.<br>
+            Please try again or contact our support team.
         </p>
 
         {{-- Buttons --}}
         <div>
+
             <a href="{{ route('user.index') }}"
                class="btn btn-primary btn-lg me-3 border-0 fn-btn primary-blue">
                 Back to Home
@@ -65,11 +69,11 @@
                class="btn btn-primary btn-lg border-0 fn-btn primary-green">
                 Call Now
             </a>
+
         </div>
 
     </div>
 
 </section>
-
 
 @endsection

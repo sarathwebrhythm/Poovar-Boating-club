@@ -13,14 +13,20 @@ class UserController extends Controller
      */
     public function index(): View
     {
-              $packages = Package::where('status', 1)
-                            ->orderBy('order')
-                            ->get();
+        $packages = Package::where('status', 1)
+            ->orderBy('order')
+            ->get();
 
         return view('user.landing', compact('packages'));
     }
 
-    public function paymentSuccess() {
-        return view('success');
+  
+    public function thankyou()
+    {
+        return view('user.thankyou');
+    }
+     public function paymentFailed()
+    {
+        return view('user.payment-failed');
     }
 }
