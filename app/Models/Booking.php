@@ -20,4 +20,9 @@ class Booking extends Model
         'transaction_id',
          'phonepe_ref'
     ];
+     public function package()
+    {
+        return $this->belongsTo(Package::class);
+    }
 }
+

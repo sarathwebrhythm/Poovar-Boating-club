@@ -20,7 +20,7 @@
             <div class="flex justify-between items-center">
                 <div>
                     <p class="text-sm opacity-80">Total Packages</p>
-                    <h2 class="text-3xl font-bold mt-2">12</h2>
+                    <h2 class="text-3xl font-bold mt-2">{{ $activePackages }}</h2>
                 </div>
                 <i class="material-icons-round text-4xl opacity-80">inventory_2</i>
             </div>
@@ -31,33 +31,15 @@
             <div class="flex justify-between items-center">
                 <div>
                     <p class="text-sm opacity-80">Total Bookings</p>
-                    <h2 class="text-3xl font-bold mt-2">45</h2>
+                    <h2 class="text-3xl font-bold mt-2">{{ $totalBookings }}</h2>
                 </div>
                 <i class="material-icons-round text-4xl opacity-80">event</i>
             </div>
         </div>
 
-        <!-- Active Users -->
-        <div class="bg-purple-500 text-white p-6 rounded-xl shadow-lg">
-            <div class="flex justify-between items-center">
-                <div>
-                    <p class="text-sm opacity-80">Active Users</p>
-                    <h2 class="text-3xl font-bold mt-2">28</h2>
-                </div>
-                <i class="material-icons-round text-4xl opacity-80">group</i>
-            </div>
-        </div>
+        
 
-        <!-- Revenue -->
-        <div class="bg-orange-500 text-white p-6 rounded-xl shadow-lg">
-            <div class="flex justify-between items-center">
-                <div>
-                    <p class="text-sm opacity-80">Revenue</p>
-                    <h2 class="text-3xl font-bold mt-2">₹18,500</h2>
-                </div>
-                <i class="material-icons-round text-4xl opacity-80">payments</i>
-            </div>
-        </div>
+        
 
     </div>
 
@@ -71,7 +53,7 @@
                 Manage Packages
             </a>
 
-            <a href="#"
+            <a href="{{ route('admin.bookings.index') }}"
                class="bg-green-600 text-white px-6 py-3 rounded-lg hover:bg-green-700 transition">
                 View Bookings
             </a>
