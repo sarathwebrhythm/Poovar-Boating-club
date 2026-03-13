@@ -31,12 +31,10 @@ Route::prefix('admin')->name('admin.')->group(function () {
     Route::middleware('admin.authenticated')->group(function () {
         Route::get('/dashboard', [AdminController::class, 'dashboard'])->name('dashboard');
         Route::post('/logout', [AdminController::class, 'logout'])->name('logout');
+        // package
+        Route::resource('packages', App\Http\Controllers\Admin\PackageController::class);
+        //booking
+        Route::resource('bookings', App\Http\Controllers\Admin\BookingController::class);
     });
 
-
-     // package
-    Route::resource('packages', App\Http\Controllers\Admin\PackageController::class);
-   
-
-   
 });

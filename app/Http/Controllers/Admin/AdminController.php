@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Booking;
+use App\Models\Package;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
 use Illuminate\Http\RedirectResponse;
@@ -42,7 +44,9 @@ class AdminController extends Controller
      */
     public function dashboard()
     {
-         return view('admin.dashboard');
+        $activePackages = Package::where('status', 1)->count();
+       $totalBookings = Booking::count();
+          return view('admin.dashboard', compact('activePackages', 'totalBookings'));
     }
 
     /**
