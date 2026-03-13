@@ -19,6 +19,7 @@ class BookingController extends Controller
             'name' => 'required|string|max:100',
             'phone' => 'required|digits:10',
             'email' => 'nullable|email',
+             'booking_date' => 'required|date|after_or_equal:today',
             'people' => 'required|integer|min:1',
             'duration' => 'nullable|integer'
         ]);
@@ -63,6 +64,7 @@ class BookingController extends Controller
             'name' => $request->name,
             'phone' => $request->phone,
             'email' => $request->email,
+             'booking_date' => $request->booking_date,
             'people' => $people,
             'duration' => $duration,
             'boats_required' => $boatsRequired,
