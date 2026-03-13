@@ -44,8 +44,10 @@ class PaymentController extends Controller
         Transaction::create([
             'temporary_booking_id' => $booking->id,
             'transaction_id' => $transactionId,
+            'booking_date' => $booking->booking_date,
             'gateway' => 'phonepe',
             'status' => 'pending'
+            
         ]);
 
         $booking->transaction_id = $transactionId;
@@ -145,6 +147,7 @@ class PaymentController extends Controller
 
             Transaction::where('transaction_id', $transactionId)->update([
                 'phonepe_ref' => $phonepeRef,
+
                 'status' => 'success'
             ]);
 
@@ -153,6 +156,7 @@ class PaymentController extends Controller
                 'name' => $tempBooking->name,
                 'phone' => $tempBooking->phone,
                 'email' => $tempBooking->email,
+                'booking_date' => $tempBooking->booking_date,
                 'people' => $tempBooking->people,
                 'duration' => $tempBooking->duration,
                 'boats_required' => $tempBooking->boats_required,

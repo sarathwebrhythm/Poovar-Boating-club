@@ -69,6 +69,10 @@
                             <label>Email</label>
                             <input type="email" name="email" id="email" class="form-control" placeholder="Enter your email" required>
                         </div>
+                        <div class="mb-3">
+                         <label>Booking Date</label>
+                          <input type="date" name="booking_date" class="form-control" min="{{ date('Y-m-d') }}" required>
+                         </div>
                         
 
                         @if($package->pricing_type == 'flexible')

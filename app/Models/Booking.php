@@ -12,6 +12,7 @@ class Booking extends Model
         'name',
         'phone',
         'email',
+        'booking_date',
         'people',
         'duration',
         'boats_required',
