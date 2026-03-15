@@ -66,7 +66,7 @@
                     </td>
 
                     <td class="px-6 py-4">
-                        {{ \Carbon\Carbon::parse($booking->booking_date)->format('d/m/Y') }}
+                        {{ date('d/m/Y', strtotime($booking->booking_date)) }}
                     </td>
                     <td class="px-6 py-4">
                         <a href="{{ route('admin.bookings.show', $booking->id) }}"

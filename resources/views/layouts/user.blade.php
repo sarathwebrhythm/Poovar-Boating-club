@@ -30,6 +30,7 @@
   <!-- ===============================================-->
    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
  <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
+<script src="https://www.google.com/recaptcha/api.js?render={{ env('RECAPTCHA_SITE_KEY') }}"></script>
   
   <!-- Google Tag Manager -->
 <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
@@ -54,7 +55,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 @yield('content')
 
+@if(session('error'))
+<script>
+    alert("{{ session('error') }}");
+</script>
+@endif
 
+@yield('footer')
 
 <!-- footer -->
 
@@ -69,8 +76,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <h4 class="footer-heading-color fw-bold font-sans-serif mb-3 mb-lg-4">Company</h4>
           <ul class="list-unstyled mb-0 navigation">
             <li class="mb-2"><a class="link-900 text-decoration-none" href="/">Home</a></li>
-            <li class="mb-2"><a class="link-900 text-decoration-none" href="#!">Boating Packages</a></li>
-            <li class="mb-2"><a class="link-900 text-decoration-none" href="#!">Rooms</a></li>
+            <li class="mb-2"><a class="link-900 text-decoration-none" href="{{route('user.index')}}#packages">Boating Packages</a></li>
+            <!-- <li class="mb-2"><a class="link-900 text-decoration-none" href="#!">Rooms</a></li> -->
             <!-- <li class="mb-2"><a class="link-900 text-decoration-none" href="#!" data-bs-toggle="modal"
               data-bs-target="#booknow">Booking</a></li> -->
             <li class="mb-2"><a class="link-900 text-decoration-none" href="#!" data-bs-toggle="modal"
@@ -236,7 +243,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                   </div>
                 </div>
                 <div class="form-group">
-                  <div class="g-recaptcha" data-sitekey="6LeaCEkUAAAAAPrZiFyGOW8z2Uy3VmYURJUzJVA3"></div>
+                  <!-- <div class="g-recaptcha" data-sitekey="6LeaCEkUAAAAAPrZiFyGOW8z2Uy3VmYURJUzJVA3"></div> -->
                 </div>
                 <div class="row">
                   <div class="d-flex justify-content-end">
@@ -431,6 +438,25 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}"> -->
    <script src="{{ asset('/assets/js/script.js') }}"></script>
+   <script>
+grecaptcha.ready(function () {
+    grecaptcha.execute('{{ env("RECAPTCHA_SITE_KEY") }}', {action: 'page_view'})
+    .then(function (token) {
+
+        fetch('/verify-recaptcha', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'X-CSRF-TOKEN': '{{ csrf_token() }}'
+            },
+            body: JSON.stringify({
+                token: token
+            })
+        });
+
+    });
+});
+</script>
 
   <link
     href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&amp;family=Volkhov:wght@700&amp;display=swap"
