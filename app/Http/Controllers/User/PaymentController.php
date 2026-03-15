@@ -111,7 +111,8 @@ class PaymentController extends Controller
         $tempBooking = TemporaryBooking::find($bookingId);
 
         if (!$tempBooking) {
-            return "Booking not found";
+             return redirect()->route('user.index')
+        ->with('error', 'Booking not found.');
         }
 
         $transactionId = $tempBooking->transaction_id;

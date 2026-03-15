@@ -22,7 +22,7 @@
 
             <div>
                 <strong>Booking Date:</strong>
-                {{ \Carbon\Carbon::parse($booking->booking_date)->format('d/m/Y') }}
+                {{ date('d/m/Y', strtotime($booking->booking_date)) }}
             </div>
 
             <div>

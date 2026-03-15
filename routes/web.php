@@ -1,11 +1,13 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\User\RecaptchaController;
 use App\Http\Controllers\User\UserController;
 use App\Http\Controllers\User\PackageController;
 use App\Http\Controllers\User\PaymentController;
 use App\Http\Controllers\User\BookingController;
 use App\Http\Controllers\Admin\AdminController;
+
 
 // User Routes (Public/Not authenticated)
 Route::get('/', [UserController::class, 'index'])->name('user.index');
@@ -20,6 +22,10 @@ Route::get('/payment-success', [PaymentController::class, 'success'])->name('pay
 Route::get('/thankyou', [UserController::class, 'thankyou'])->name('thankyou');
 //payment failed page
 Route::get('/payment-failed', [UserController::class, 'paymentFailed'])->name('payment.failed');
+
+//Recapche
+Route::post('/verify-recaptcha', [RecaptchaController::class, 'verify']);
+
 // Admin Routes (Password authenticated)
 Route::prefix('admin')->name('admin.')->group(function () {
     // Login route (public)
