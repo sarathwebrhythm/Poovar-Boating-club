@@ -1,6 +1,6 @@
 @extends('layouts.user')
 
-@section('title', 'Poovar Boating Packages Upto &#8211; 70% Offer &#8211; Resort Rooms &#8211; Book Now')
+@section('title', 'Poovar Boating Packages Upto 70% Offer Resort Rooms Book Now')
 
 @section('header')
 <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3 d-block " style="background:white; box-shadow:0 4px 12px rgba(0,0,0,.5);" data-navbar-on-scroll="data-navbar-on-scroll">

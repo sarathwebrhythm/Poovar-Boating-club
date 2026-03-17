@@ -12,7 +12,7 @@ use App\Http\Controllers\Admin\AdminController;
 // User Routes (Public/Not authenticated)
 Route::get('/', [UserController::class, 'index'])->name('user.index');
 //Package details route
-Route::get('/package-details/{id}', [PackageController::class, 'show'])->name('user.package.detail');
+Route::get('/package-details/{slug}', [PackageController::class, 'show'])->name('user.package.detail');
 //Booking route
 Route::post('/booking/store', [BookingController::class, 'store'])->name('user.booking.store');
 //Payment route

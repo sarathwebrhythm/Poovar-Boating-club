@@ -1,6 +1,6 @@
 @extends('layouts.user')
 
-@section('title', 'Poovar Boating Packages Upto &#8211; 70% Offer &#8211; Resort Rooms &#8211; Book Now')
+@section('title', 'Poovar Boating Packages Upto 70% Offer  Resort Rooms  Book Now')
 
 @section('header')
 <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3 d-block"
@@ -150,10 +150,10 @@
             </p>
 
             {{-- Book Button --}}
-            <div class="mt-3">
-              <a href="{{ route('user.package.detail', $package->id) }}"
-                class="btn btn-primary btn-lg fn-btn-cta blue">
-                Book Now
+            <div  style="text-align: center;" class="mt-3" >
+              <a href="{{ route('user.package.detail', $package->slug) }}" 
+                class="btn btn-primary btn-lg fn-btn-cta blue" >
+                Book A Ride 
               </a>
             </div>
 
