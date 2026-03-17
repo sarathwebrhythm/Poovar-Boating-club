@@ -8,6 +8,7 @@ class Package extends Model
 {
     protected $fillable = [
         'name',
+         'slug',
         'short_description',
         'image',
         'image_alt',

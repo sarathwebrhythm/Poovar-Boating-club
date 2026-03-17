@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Package;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
 
 class PackageController extends Controller
 {
@@ -39,6 +40,7 @@ class PackageController extends Controller
 {
     $request->validate([
         'name'              => 'required|string|max:255',
+        'slug' => 'nullable|string|max:255|unique:packages,slug',
         'short_description' => 'required|string|max:500',
         'pricing_type'      => 'required|in:fixed,flexible',
         'details'           => 'required',
@@ -122,6 +124,7 @@ class PackageController extends Controller
 
     Package::create([
         'name'              => $request->name,
+        'slug' => Str::slug($request->slug ?: $request->name),
         'short_description' => $request->short_description,
         'image'             => $imagePath,
         'image_alt'         => $request->image_alt,
@@ -166,6 +169,7 @@ class PackageController extends Controller
 {
     $request->validate([
         'name'              => 'required|string|max:255',
+        'slug' => 'nullable|string|max:255|unique:packages,slug,' . $package->id,
         'short_description' => 'required|string|max:500',
         'pricing_type'      => 'required|in:fixed,flexible',
         'details'           => 'required',
@@ -252,6 +256,7 @@ class PackageController extends Controller
 
     $package->update([
         'name'              => $request->name,
+        'slug' => Str::slug($request->slug ?: $request->name),
         'short_description' => $request->short_description,
         'image'             => $imagePath,
         'image_alt'         => $request->image_alt,
