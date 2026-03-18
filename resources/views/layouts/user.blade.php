@@ -259,18 +259,25 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
   </div>
 
-  <div class="modal fade" id="gallery-1" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body popup">
-          <img class="img-fluid w-100" src="{{ asset('assets/img/gal-1l.jpeg') }}"  alt="" />
-        </div>
+<div class="modal fade" id="gallery-1" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1">
+
+  <div class="modal-dialog modal-dialog-centered modal-lg">
+
+    <div class="modal-content">
+
+      <div class="modal-header">
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
       </div>
+
+      <div class="modal-body popup">
+        <img class="img-fluid w-100" src="{{ asset('assets/img/gal-1l.jpeg') }}">
+      </div>
+
     </div>
+
   </div>
+
+</div>
 
   <div class="modal fade" id="gallery-2" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-hidden="true">
     <div class="modal-dialog">

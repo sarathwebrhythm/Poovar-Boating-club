@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\Package;
 use App\Models\TemporaryBooking;
 
+
 class BookingController extends Controller
 {
 
@@ -25,17 +26,16 @@ class BookingController extends Controller
         ]);
 
 
-        // Get package
+        
         $package = Package::findOrFail($request->package_id);
 
 
         $people = $request->people;
 
-        // Boat calculation (1 boat = 8 people)
+       
         $boatsRequired = ceil($people / 8);
 
 
-        // Price calculation
         if ($package->pricing_type === 'flexible') {
 
             $duration = $request->duration;
@@ -54,7 +54,7 @@ class BookingController extends Controller
         }
 
 
-        // Final price
+    
         $totalPrice = $boatsRequired * $durationPrice;
 
 

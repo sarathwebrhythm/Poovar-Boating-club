@@ -2,6 +2,10 @@
 
 namespace App\Http\Controllers\User;
 
+use Illuminate\Support\Facades\Mail;
+use App\Mail\UserBookingConfirmationMail;
+use App\Mail\AdminBookingNotificationMail;
+
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
@@ -47,7 +51,7 @@ class PaymentController extends Controller
             'booking_date' => $booking->booking_date,
             'gateway' => 'phonepe',
             'status' => 'pending'
-            
+
         ]);
 
         $booking->transaction_id = $transactionId;
@@ -111,8 +115,8 @@ class PaymentController extends Controller
         $tempBooking = TemporaryBooking::find($bookingId);
 
         if (!$tempBooking) {
-             return redirect()->route('user.index')
-        ->with('error', 'Booking not found.');
+            return redirect()->route('user.index')
+                ->with('error', 'Booking not found.');
         }
 
         $transactionId = $tempBooking->transaction_id;
@@ -152,7 +156,7 @@ class PaymentController extends Controller
                 'status' => 'success'
             ]);
 
-            Booking::create([
+            $booking =  Booking::create([
                 'package_id' => $tempBooking->package_id,
                 'name' => $tempBooking->name,
                 'phone' => $tempBooking->phone,
@@ -165,6 +169,10 @@ class PaymentController extends Controller
                 'transaction_id' => $transactionId,
                 'phonepe_ref' => $phonepeRef
             ]);
+            // Send booking emails
+            Mail::to($booking->email)->send(new UserBookingConfirmationMail($booking));
+
+            Mail::to('poovarboatingclub@gmail.com')->send(new AdminBookingNotificationMail($booking));
 
             $tempBooking->delete();
 
