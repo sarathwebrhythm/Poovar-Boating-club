@@ -181,14 +181,14 @@
       </div>
       <div class="col-md-4 mb-4">
         <div class="card overflow-hidden shadow">
-          <a data-bs-toggle="modal" data-bs-target="#gallery-1">
+         <a data-bs-toggle="modal" data-bs-target="#gallery-3">
             <img src="{{ asset('assets/img/gal-1.jpeg') }}" class="w-100" />
-          </a>
+           </a>
         </div>
       </div>
       <div class="col-md-4 mb-4">
         <div class="card overflow-hidden shadow">
-          <a data-bs-toggle="modal" data-bs-target="#gallery-2">
+          <a data-bs-toggle="modal" data-bs-target="#gallery-3">
             <img src="{{ asset('assets/img/gal-2.jpeg') }}" class="w-100" />
           </a>
         </div>
@@ -459,5 +459,7 @@
   </div><!-- end of .container-->
 
 </section>
+
+
 
 @endsection

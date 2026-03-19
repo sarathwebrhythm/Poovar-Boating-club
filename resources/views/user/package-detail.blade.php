@@ -375,14 +375,14 @@
         const peopleElement = document.getElementById("people");
         const people = peopleElement ? peopleElement.value.trim() : "{{ $package->people_count }}";
 
-        // 1️⃣ Name validation
+       
         if (name === "") {
             document.getElementById("nameError").innerText = "Please enter your name";
             document.getElementById("name").focus();
             return;
         }
 
-        // 2️⃣ Phone validation
+       
         if (phone === "") {
             document.getElementById("phoneError").innerText = "Please enter phone number";
             document.getElementById("phone").focus();
@@ -395,7 +395,7 @@
             return;
         }
 
-        // 3️⃣ Email validation
+       
         if (email === "") {
             document.getElementById("emailError").innerText = "Please enter your email";
             document.getElementById("email").focus();
@@ -408,14 +408,14 @@
             return;
         }
 
-        // 4️⃣ Booking date validation
+        
         if (date === "") {
             document.getElementById("dateError").innerText = "Please select booking date";
             document.querySelector("input[name='booking_date']").focus();
             return;
         }
 
-        // 5️⃣ People validation
+        
         if (peopleElement) {
 
             if (people === "") {
