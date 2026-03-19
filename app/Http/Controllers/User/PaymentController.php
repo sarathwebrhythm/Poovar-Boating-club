@@ -176,14 +176,16 @@ class PaymentController extends Controller
 
             $tempBooking->delete();
 
-            return redirect()->route('thankyou');
+            // return redirect()->route('thankyou');
+            return view('user.thankyou');
         } else {
 
             Transaction::where('transaction_id', $transactionId)->update([
                 'status' => 'failed'
             ]);
 
-            return redirect()->route('payment.failed');
+            // return redirect()->route('payment.failed');
+            return view('payment.failed');
         }
     }
 }

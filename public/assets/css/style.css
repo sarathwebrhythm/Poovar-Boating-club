@@ -6286,8 +6286,10 @@ fieldset:disabled .btn {
 .modal-dialog {
   position: relative;
   width: auto;
-  margin: 0.5rem;
+  
   pointer-events: none;
+  max-width: 600px;
+  margin: 1.75rem auto;
 }
 
 .modal.fade .modal-dialog {
@@ -6346,12 +6348,7 @@ fieldset:disabled .btn {
 
 .modal-content {
   position: relative;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  -ms-flex-direction: column;
   flex-direction: column;
   width: 100%;
   pointer-events: auto;
@@ -6360,6 +6357,8 @@ fieldset:disabled .btn {
   border: 1px solid rgba(0, 0, 0, 0.2);
   border-radius: 2.25rem;
   outline: 0;
+   max-width:600px;
+    margin:1.75rem auto;
 }
 
 .modal-backdrop {
