@@ -138,7 +138,7 @@
                                     id="people"
                                     class="form-control"
                                     min="1"
-                                     step="1"
+                                    step="1"
                                     placeholder="Enter number of people">
 
                                 <small style="color:red;" class="error-message" id="peopleError"></small>
@@ -192,7 +192,7 @@
 
 
                         <!-- BUTTON -->
-                        <!-- <div class="text-center mt-3">
+                        <div class="text-center mt-3">
 
                             <button type="button"
                                 id="confirmBtn"
@@ -203,7 +203,7 @@
 
                             </button>
 
-                        </div> -->
+                        </div>
 
                         <!-- button disabled to impliment payment option -->
 
@@ -319,7 +319,7 @@
         // FINAL PRICE
         let total = boats * durationPrice;
 
-        priceInput.value = total; 
+        priceInput.value = total;
 
         if (priceText) {
             priceText.innerText = "₹" + total;
@@ -377,14 +377,14 @@
         const peopleElement = document.getElementById("people");
         const people = peopleElement ? peopleElement.value.trim() : "{{ $package->people_count }}";
 
-       
+
         if (name === "") {
             document.getElementById("nameError").innerText = "Please enter your name";
             document.getElementById("name").focus();
             return;
         }
 
-       
+
         if (phone === "") {
             document.getElementById("phoneError").innerText = "Please enter phone number";
             document.getElementById("phone").focus();
@@ -397,7 +397,7 @@
             return;
         }
 
-       
+
         if (email === "") {
             document.getElementById("emailError").innerText = "Please enter your email";
             document.getElementById("email").focus();
@@ -410,14 +410,14 @@
             return;
         }
 
-        
+
         if (date === "") {
             document.getElementById("dateError").innerText = "Please select booking date";
             document.querySelector("input[name='booking_date']").focus();
             return;
         }
 
-        
+
         if (peopleElement) {
 
             if (people === "") {
@@ -455,9 +455,15 @@
         modal.show();
     });
 
+    // document.getElementById("payNowBtn").addEventListener("click", function() {
+    //     form.submit();
+    // });
+
     document.getElementById("payNowBtn").addEventListener("click", function() {
-        form.submit();
-    });
+        modal.hide();
+        alert("Payment integration is under development.");
+    })
+    
 </script>
 
 @endpush
