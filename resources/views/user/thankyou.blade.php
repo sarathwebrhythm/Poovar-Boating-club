@@ -71,4 +71,16 @@
 
 </section>
 
+@push('scripts')
+<script>
+window.dataLayer = window.dataLayer || [];
+
+window.dataLayer.push({
+    event: "booking_success",
+    status: "success"
+});
+</script>
+
+@endpush
+
 @endsection

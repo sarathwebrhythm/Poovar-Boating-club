@@ -5,6 +5,7 @@ namespace App\Http\Controllers\User;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\UserBookingConfirmationMail;
 use App\Mail\AdminBookingNotificationMail;
+use App\Services\WhatsAppService;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
@@ -169,6 +170,8 @@ class PaymentController extends Controller
                 'transaction_id' => $transactionId,
                 'phonepe_ref' => $phonepeRef
             ]);
+
+          
             // Send booking emails
             Mail::to($booking->email)->send(new UserBookingConfirmationMail($booking));
 

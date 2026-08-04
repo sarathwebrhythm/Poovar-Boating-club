@@ -44,8 +44,6 @@
         </p>
     </div>
 
-    <p class="text-center text-xs text-[#706f6c] dark:text-[#A1A09A] mt-6">
-        For demo purposes, the default password is: <code class="bg-gray-100 dark:bg-[#1D0002] px-2 py-1 rounded">admin123</code>
-    </p>
+
 </div>
 @endsection

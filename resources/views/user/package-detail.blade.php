@@ -317,7 +317,7 @@
         // FINAL PRICE
         let total = boats * durationPrice;
 
-        priceInput.value = total; // keep logic
+        priceInput.value = total; 
 
         if (priceText) {
             priceText.innerText = "₹" + total;

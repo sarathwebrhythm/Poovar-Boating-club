@@ -129,7 +129,8 @@
     <div class="row">
 
       @foreach($packages as $package)
-      <div class="col-md-4 mb-5">
+      <div class="col-lg-4 col-md-6 mb-5">
+        <a href="{{ route('user.package.detail', $package->slug) }}" style="text-decoration: none; color: inherit;">
         <div class="card overflow-hidden shadow h-100">
 
           {{-- Package Image --}}
@@ -150,7 +151,7 @@
             </p>
 
             {{-- Book Button --}}
-            <div  style="text-align: center;" class="mt-3" >
+            <div  style="text-align: center;" class="mt-auto pt-3" >
               <a href="{{ route('user.package.detail', $package->slug) }}" 
                 class="btn btn-primary btn-lg fn-btn-cta blue" >
                 Book A Ride 
@@ -159,6 +160,7 @@
 
           </div>
         </div>
+        </a>
       </div>
       @endforeach
 
@@ -181,14 +183,14 @@
       </div>
       <div class="col-md-4 mb-4">
         <div class="card overflow-hidden shadow">
-         <a data-bs-toggle="modal" data-bs-target="#gallery-3">
+         <a data-bs-toggle="modal" data-bs-target="#gallery-1">
             <img src="{{ asset('assets/img/gal-1.jpeg') }}" class="w-100" />
            </a>
         </div>
       </div>
       <div class="col-md-4 mb-4">
         <div class="card overflow-hidden shadow">
-          <a data-bs-toggle="modal" data-bs-target="#gallery-3">
+          <a data-bs-toggle="modal" data-bs-target="#gallery-2">
             <img src="{{ asset('assets/img/gal-2.jpeg') }}" class="w-100" />
           </a>
         </div>

@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en-US" dir="ltr">
 
@@ -18,54 +17,65 @@
   <title>@yield('title')</title>
 
   <!-- ===============================================-->
-   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <!--    Favicons-->
   <!-- ===============================================-->
   <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('assets/img/favicon-32x32.png') }}">
   <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('assets/img/favicon-16x16.png') }}">
-    <meta name=" theme-color" content="#ffffff">
+  <meta name=" theme-color" content="#ffffff">
 
   <!-- ===============================================-->
   <!--    Stylesheets-->
   <!-- ===============================================-->
-   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
- <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
-<script src="https://www.google.com/recaptcha/api.js?render={{ env('RECAPTCHA_SITE_KEY') }}"></script>
-  
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
+  <script src="https://www.google.com/recaptcha/api.js?render={{ env('RECAPTCHA_SITE_KEY') }}"></script>
+
   <!-- Google Tag Manager -->
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-M58MJ9H');</script>
-<!-- End Google Tag Manager -->
- 
+  <script>
+    (function(w, d, s, l, i) {
+      w[l] = w[l] || [];
+      w[l].push({
+        'gtm.start': new Date().getTime(),
+        event: 'gtm.js'
+      });
+      var f = d.getElementsByTagName(s)[0],
+        j = d.createElement(s),
+        dl = l != 'dataLayer' ? '&l=' + l : '';
+      j.async = true;
+      j.src =
+        'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+      f.parentNode.insertBefore(j, f);
+    })(window, document, 'script', 'dataLayer', 'GTM-M58MJ9H');
+  </script>
+  <!-- End Google Tag Manager -->
+
 
 </head>
 
 <body>
-    
-<!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-M58MJ9H"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<!-- End Google Tag Manager (noscript) -->
 
-@yield('header')
-  
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-M58MJ9H"
+      height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
 
-@yield('content')
+  @yield('header')
 
-@if(session('error'))
-<script>
+
+  @yield('content')
+
+  @if(session('error'))
+  <script>
     alert("{{ session('error') }}");
-</script>
-@endif
+  </script>
+  @endif
 
-@yield('footer')
+  @yield('footer')
 
-<!-- footer -->
+  <!-- footer -->
 
-<section class="pb-0 pb-lg-4 mob-0">
+  <section class="pb-0 pb-lg-4 mob-0">
 
     <div class="container mob-text-center">
       <div class="row">
@@ -107,9 +117,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
   <footer>
     <div class="container">
-      <div class="d-flex justify-content-between py-5">
+      <div class="d-flex justify-content-between align-items-center py-3">
         <p class="text-secondary fs--1 fw-medium foot-note">&copy; 2023 Fenlake. All rights reserved</p>
-        <p class="text-secondary fs--1 fw-medium  foot-note">Powered by <a href="https://cozmea.com/" target="_blank">COZMEA</a></p>
+        <p class="text-secondary fs--1 fw-medium  foot-note">Developed by <img style="width: 100px;" src="{{ asset('assets/img/WEB LOGO1.png') }}" alt=""> digital marketing services</p>
       </div>
     </div>
   </footer>
@@ -162,10 +172,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </div>
     </div>
   </div>
-
+  <!-- ........................................................ -->
   <div class="modal fade" id="booknow" tabindex="-1" aria-labelledby="booknow" aria-hidden="true">
     <div class="modal-dialog">
-      <div class="modal-content"> 
+      <div class="modal-content">
         <div class="modal-body p-0">
           <div class="row">
             <div class="col-md-5 p-0">
@@ -174,14 +184,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <div class="col-md-7 px-5 py-4">
               <div class="d-flex justify-content-between">
                 <h5 class="modal-title" id="exampleModalLabel">Book a ride with us</h5>
-              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
               </div>
-              
+
               <form name="contact-form" method="post" action="contact.php">
                 <div class="row mb-2">
                   <label class="col-sm-12 col-form-label">Name</label>
                   <div class="col-sm-12">
-                    <input type="text" name="fname"  id="fname" class="form-control" placeholder="Name" required>
+                    <input type="text" name="fname" id="fname" class="form-control" placeholder="Name" required>
                   </div>
                 </div>
                 <div class="row mb-2">
@@ -219,16 +229,16 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                   <label class="col-sm-12 col-form-label">Addon Services</label>
                   <div class="col-sm-12">
                     <div class="form-check">
-                      <input class="form-check-input" type="checkbox"  name="cabfacility" id="cabfacility">
-                      <label class="form-check-label" for="cabfacility" >Taxi / cab - Pickup Drop</label>
+                      <input class="form-check-input" type="checkbox" name="cabfacility" id="cabfacility">
+                      <label class="form-check-label" for="cabfacility">Taxi / cab - Pickup Drop</label>
                     </div>
                     <div class="form-check">
                       <input class="form-check-input" type="checkbox" name="rooms" id="rooms">
-                      <label class="form-check-label" for="rooms" >Rooms</label>
+                      <label class="form-check-label" for="rooms">Rooms</label>
                     </div>
                     <div class="form-check">
-                      <input class="form-check-input" type="checkbox" name="lunchdinnercruise" id="lunchdinnercruise" >
-                      <label class="form-check-label" for="lunchdinnercruise" >Lunch / Dinner Cruise</label>
+                      <input class="form-check-input" type="checkbox" name="lunchdinnercruise" id="lunchdinnercruise">
+                      <label class="form-check-label" for="lunchdinnercruise">Lunch / Dinner Cruise</label>
                     </div>
                     <div class="form-check">
                       <input class="form-check-input" type="checkbox" name="noitem" id="noitem">
@@ -239,7 +249,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 <div class="row mb-3">
                   <label class="col-sm-12 col-form-label">Message</label>
                   <div class="col-sm-12">
-                    <textarea class="form-control"  rows="3" name="noitem" id="msg"></textarea>
+                    <textarea class="form-control" rows="3" name="noitem" id="msg"></textarea>
                   </div>
                 </div>
                 <div class="form-group">
@@ -247,8 +257,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 </div>
                 <div class="row">
                   <div class="d-flex justify-content-end">
-                    <button type="submit" name="contact_btn_submit" 
-                    class="btn btn-primary btn-lg  mb-3 mb-md-0 border-0 fn-btn-cta blue">Submit</button>
+                    <button type="submit" name="contact_btn_submit"
+                      class="btn btn-primary btn-lg  mb-3 mb-md-0 border-0 fn-btn-cta blue">Submit</button>
                   </div>
                 </div>
               </form>
@@ -259,7 +269,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
   </div>
 
-  <div class="modal fade" id="gallery-2" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-hidden="true">
+  <!-- ............................................................ -->
+
+
+  <div class="modal fade" id="gallery-1" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content">
         <div class="modal-header">
@@ -318,7 +331,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body popup">
-          <img class="img-fluid w-100" src="{{ asset('assets/img/gal-5l.jpeg') }}"alt="" />
+          <img class="img-fluid w-100" src="{{ asset('assets/img/gal-5l.jpeg') }}" alt="" />
         </div>
       </div>
     </div>
@@ -424,45 +437,47 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <!-- ===============================================-->
   <!--    JavaScripts-->
   <!-- ===============================================-->
-   <!-- Bootstrap JS Bundle (includes Popper) -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- Bootstrap JS Bundle (includes Popper) -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   <!-- <script src="vendors/@popperjs/popper.min.js"></script>
   <script src="vendors/bootstrap/bootstrap.min.js"></script> -->
   <script src="vendors/is/is.min.js"></script>
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=window.scroll"></script>
+  <!-- <script src="https://polyfill.io/v3/polyfill.min.js?features=window.scroll"></script> -->
   <!-- <script src="vendors/fontawesome/all.min.js"></script> -->
   <!-- <script src="assets/js/theme.js"></script> -->
-   <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
 <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}"> -->
-   <script src="{{ asset('/assets/js/script.js') }}"></script>
-   <script>
-grecaptcha.ready(function () {
-    grecaptcha.execute('{{ env("RECAPTCHA_SITE_KEY") }}', {action: 'page_view'})
-    .then(function (token) {
+  <script src="{{ asset('/assets/js/script.js') }}"></script>
+  <script>
+    grecaptcha.ready(function() {
+      grecaptcha.execute('{{ env("RECAPTCHA_SITE_KEY") }}', {
+          action: 'page_view'
+        })
+        .then(function(token) {
 
-        fetch('/verify-recaptcha', {
+          fetch('/verify-recaptcha', {
             method: 'POST',
             headers: {
-                'Content-Type': 'application/json',
-                'X-CSRF-TOKEN': '{{ csrf_token() }}'
+              'Content-Type': 'application/json',
+              'X-CSRF-TOKEN': '{{ csrf_token() }}'
             },
             body: JSON.stringify({
-                token: token
+              token: token
             })
-        });
+          });
 
+        });
     });
-});
-</script>
+  </script>
 
   <link
     href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&amp;family=Volkhov:wght@700&amp;display=swap"
     rel="stylesheet">
 
-     @stack('scripts')
+  @stack('scripts')
 </body>
 
 </html>
