@@ -28,8 +28,8 @@ class AdminController extends Controller
             'password' => 'required|string',
         ]);
 
-        // Use a hardcoded password or from env for demo
-        $adminPassword = config('app.admin_password', 'admin123');
+        $adminPassword = config('app.admin_password');
+       
 
         if ($credentials['password'] === $adminPassword) {
             session(['admin_authenticated' => true]);

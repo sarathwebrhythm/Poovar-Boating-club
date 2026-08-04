@@ -18,7 +18,7 @@ Route::post('/booking/store', [BookingController::class, 'store'])->name('user.b
 //Payment route
 Route::get('/payment/{id}', [PaymentController::class, 'pay'])->name('payment.pay');
 Route::get('/payment-success', [PaymentController::class, 'success'])->name('payment.success');
-// thankyou page 
+
 // Route::get('/thankyou', [UserController::class, 'thankyou'])->name('thankyou');
 //payment failed page
 // Route::get('/payment-failed', [UserController::class, 'paymentFailed'])->name('payment.failed');

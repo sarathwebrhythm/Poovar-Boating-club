@@ -12,7 +12,8 @@
 
     <!-- Icons -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
-
+    <!--fav Icons -->
+    <link rel="icon" type="image/png" href="{{ asset('assets/img/favicon.png') }}">
     <!-- Tailwind -->
     <script src="https://cdn.tailwindcss.com"></script>
 
