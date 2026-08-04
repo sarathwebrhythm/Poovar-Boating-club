@@ -255,12 +255,12 @@
                 <div class="form-group">
                   <!-- <div class="g-recaptcha" data-sitekey="6LeaCEkUAAAAAPrZiFyGOW8z2Uy3VmYURJUzJVA3"></div> -->
                 </div>
-                <div class="row">
+                <!-- <div class="row">
                   <div class="d-flex justify-content-end">
                     <button type="submit" name="contact_btn_submit"
                       class="btn btn-primary btn-lg  mb-3 mb-md-0 border-0 fn-btn-cta blue">Submit</button>
                   </div>
-                </div>
+                </div>     disabled to impliment payment option-->
               </form>
             </div>
           </div>
