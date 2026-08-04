@@ -118,7 +118,7 @@
   <footer>
     <div class="container">
       <div class="d-flex justify-content-between align-items-center py-3">
-        <p class="text-secondary fs--1 fw-medium foot-note">&copy; 2023 Fenlake. All rights reserved</p>
+        <p class="text-secondary fs--1 fw-medium foot-note">&copy; 2026 Fenlake. All rights reserved</p>
         <p class="text-secondary fs--1 fw-medium  foot-note">Developed by <img style="width: 100px;" src="{{ asset('assets/img/WEB LOGO1.png') }}" alt=""> digital marketing services</p>
       </div>
     </div>
@@ -255,12 +255,12 @@
                 <div class="form-group">
                   <!-- <div class="g-recaptcha" data-sitekey="6LeaCEkUAAAAAPrZiFyGOW8z2Uy3VmYURJUzJVA3"></div> -->
                 </div>
-                <!-- <div class="row">
+                <div class="row">
                   <div class="d-flex justify-content-end">
                     <button type="submit" name="contact_btn_submit"
                       class="btn btn-primary btn-lg  mb-3 mb-md-0 border-0 fn-btn-cta blue">Submit</button>
                   </div>
-                </div>     disabled to impliment payment option-->
+                </div>    
               </form>
             </div>
           </div>

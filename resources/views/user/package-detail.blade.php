@@ -192,7 +192,7 @@
 
 
                         <!-- BUTTON -->
-                        <div class="text-center mt-3">
+                        <!-- <div class="text-center mt-3">
 
                             <button type="button"
                                 id="confirmBtn"
@@ -203,7 +203,9 @@
 
                             </button>
 
-                        </div>
+                        </div> -->
+
+                        <!-- button disabled to impliment payment option -->
 
                     </form>
 
