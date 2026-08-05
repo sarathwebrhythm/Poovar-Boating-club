@@ -23,7 +23,7 @@
                 </ul>
                 <a class="nav-link fw-medium tele fn-call-btn ms-lg-3"
                     href="tel:+919778500322">
-                    <img src="assets/img/phone-call.png" width="20" class="me-2" alt="">
+                    <img src="{{ asset('assets/img/phone-call.png') }}" width="20" class="me-2" alt="">
                     Call Us: 97785 00322
                 </a>
             </div>
