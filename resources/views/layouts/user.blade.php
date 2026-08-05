@@ -188,7 +188,7 @@
     </div>
   </div>
   <!-- ........................................................ -->
-  <div class="modal fade" id="booknow" tabindex="-1" aria-labelledby="booknow" aria-hidden="true">
+  <!-- <div class="modal fade" id="booknow" tabindex="-1" aria-labelledby="booknow" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-body p-0">
@@ -268,7 +268,7 @@
                   </div>
                 </div>
                 <div class="form-group">
-                  <!-- <div class="g-recaptcha" data-sitekey="6LeaCEkUAAAAAPrZiFyGOW8z2Uy3VmYURJUzJVA3"></div> -->
+                  
                 </div>
                 <div class="row">
                   <div class="d-flex justify-content-end">
@@ -282,7 +282,7 @@
         </div>
       </div>
     </div>
-  </div>
+  </div> -->
 
   <!-- ............................................................ -->
 
