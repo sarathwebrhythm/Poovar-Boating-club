@@ -19,6 +19,15 @@ Route::post('/booking/store', [BookingController::class, 'store'])->name('user.b
 Route::get('/payment/{id}', [PaymentController::class, 'pay'])->name('payment.pay');
 Route::get('/payment-success', [PaymentController::class, 'success'])->name('payment.success');
 
+// Terms & Conditions
+Route::get('/terms-and-conditions', [UserController::class, 'terms'])->name('user.terms');
+
+// Privacy Policy
+Route::get('/privacy-policy', [UserController::class, 'privacy'])->name('user.privacy');
+
+// Refund and Cancellation Policy
+Route::get('/refund-and-cancellation-policy', [UserController::class, 'refund'])->name('user.refund');
+
 // Route::get('/thankyou', [UserController::class, 'thankyou'])->name('thankyou');
 //payment failed page
 // Route::get('/payment-failed', [UserController::class, 'paymentFailed'])->name('payment.failed');

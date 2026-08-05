@@ -4,7 +4,7 @@
 @section('header')
 <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3 d-block"
     data-navbar-on-scroll="data-navbar-on-scroll">
-    <div class="container"><a class="navbar-brand"><a class="navbar-brand" href="{{ route('user.index') }}"><img src="assets/img/logo-Fenlake-default.png" alt="logo" /></a>
+    <div class="container"><a class="navbar-brand" href="{{ route('user.index') }}"><img src="assets/img/logo-Fenlake-default.png" alt="logo" /></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span
                     class="navbar-toggler-icon"> </span></button>
@@ -18,10 +18,13 @@
                             href="{{route('user.index')}}#gallery" style="color: black;">Gallery</a></li>
                     <li class="nav-item px-3 px-xl-3"><a class="nav-link fw-medium" aria-current="page"
                             href="{{route('user.index')}}#testimonial" style="color: black;">Testimonial</a></li>
-                    <li class="nav-item px-3 px-xl-3"><a class="nav-link fw-medium tele fn-call-btn" aria-current="page"
-                            href="tel:+919778500322"><img src="{{ asset('assets/img/phone-call.png') }}" style="margin-right: 14px" width="20"
-                                alt="" />Call Us: 97785 00322</a></li>
+
                 </ul>
+                <a class="nav-link fw-medium tele fn-call-btn ms-lg-3"
+                    href="tel:+919778500322">
+                    <img src="assets/img/phone-call.png" width="20" class="me-2" alt="">
+                    Call Us: 97785 00322
+                </a>
             </div>
     </div>
 </nav>
@@ -35,7 +38,7 @@
 
     <div class="container text-center" style="margin-top: 100px;">
 
-        {{-- Success Icon --}}
+
         <div class="mb-4">
             <div style="width:80px;height:80px;background:#28a745;border-radius:50%;
                         display:flex;align-items:center;justify-content:center;margin:auto;">
@@ -43,14 +46,14 @@
             </div>
         </div>
 
-        {{-- Smaller Heading --}}
+
         <h1 class="text-white fw-bold" style="font-size:48px;">
             Thank You for Your Booking!
         </h1>
 
-        {{-- Sub Text --}}
+
         <p class="text-white mt-3 mb-4" style="font-size:18px;">
-            Your request has been successfully submitted.<br>
+            A confirmation email has been sent to your email address.<br>
             Our team will contact you shortly.
         </p>
 
@@ -73,12 +76,12 @@
 
 @push('scripts')
 <script>
-window.dataLayer = window.dataLayer || [];
+    window.dataLayer = window.dataLayer || [];
 
-window.dataLayer.push({
-    event: "booking_success",
-    status: "success"
-});
+    window.dataLayer.push({
+        event: "booking_success",
+        status: "success"
+    });
 </script>
 
 @endpush

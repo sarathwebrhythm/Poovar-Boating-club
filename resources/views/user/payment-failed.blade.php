@@ -5,7 +5,7 @@
 @section('header')
 <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3 d-block"
     data-navbar-on-scroll="data-navbar-on-scroll">
-    <div class="container"><a class="navbar-brand"><a class="navbar-brand" href="{{ route('user.index') }}"><img src="assets/img/logo-Fenlake-default.png" alt="logo" /></a>
+    <div class="container"><a class="navbar-brand" href="{{ route('user.index') }}"><img src="assets/img/logo-Fenlake-default.png" alt="logo" /></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span
                     class="navbar-toggler-icon"> </span></button>
@@ -19,10 +19,13 @@
                             href="{{route('user.index')}}#gallery" style="color: black;">Gallery</a></li>
                     <li class="nav-item px-3 px-xl-3"><a class="nav-link fw-medium" aria-current="page"
                             href="{{route('user.index')}}#testimonial" style="color: black;">Testimonial</a></li>
-                    <li class="nav-item px-3 px-xl-3"><a class="nav-link fw-medium tele fn-call-btn" aria-current="page"
-                            href="tel:+919778500322"><img src="{{ asset('assets/img/phone-call.png') }}" style="margin-right: 14px" width="20"
-                                alt="" />Call Us: 97785 00322</a></li>
+
                 </ul>
+                <a class="nav-link fw-medium tele fn-call-btn ms-lg-3"
+                    href="tel:+919778500322">
+                    <img src="assets/img/phone-call.png" width="20" class="me-2" alt="">
+                    Call Us: 97785 00322
+                </a>
             </div>
     </div>
 </nav>
@@ -46,18 +49,18 @@
             </div>
         </div>
 
-        {{-- Heading --}}
+
         <h1 class="text-white fw-bold" style="font-size:48px;">
             Sorry! Payment Failed
         </h1>
 
-        {{-- Message --}}
+
         <p class="text-white mt-3 mb-4" style="font-size:18px;">
             Your payment could not be completed.<br>
             Please try again or contact our support team.
         </p>
 
-        {{-- Buttons --}}
+
         <div>
 
             <a href="{{ route('user.index') }}"

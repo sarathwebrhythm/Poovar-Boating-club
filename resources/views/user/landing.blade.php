@@ -1,11 +1,11 @@
 @extends('layouts.user')
 
-@section('title', 'Poovar Boating Packages Upto 70% Offer  Resort Rooms  Book Now')
+@section('title', 'Poovar Boating Packages Upto 70% Offer Resort Rooms Book Now')
 
 @section('header')
 <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3 d-block"
   data-navbar-on-scroll="data-navbar-on-scroll">
-  <div class="container"><a class="navbar-brand"><a class="navbar-brand" href="{{ route('user.index') }}"><img src="assets/img/logo-Fenlake-default.png" alt="logo" /></a>
+  <div class="container"><a class="navbar-brand" href="{{ route('user.index') }}"><img src="assets/img/logo-Fenlake-default.png" alt="logo" /></a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
         aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span
           class="navbar-toggler-icon"> </span></button>
@@ -19,10 +19,13 @@
               href="#gallery">Gallery</a></li>
           <li class="nav-item px-3 px-xl-3"><a class="nav-link fw-medium" aria-current="page"
               href="#testimonial">Testimonial</a></li>
-          <li class="nav-item px-3 px-xl-3"><a class="nav-link fw-medium tele fn-call-btn" aria-current="page"
-              href="tel:+919778500322"><img src="assets/img/phone-call.png" style="margin-right: 14px" width="20"
-                alt="" />Call Us: 97785 00322</a></li>
+
         </ul>
+        <a class="nav-link fw-medium tele fn-call-btn ms-lg-3"
+          href="tel:+919778500322">
+          <img src="assets/img/phone-call.png" width="20" class="me-2" alt="">
+          Call Us: 97785 00322
+        </a>
       </div>
   </div>
 </nav>
@@ -131,35 +134,35 @@
       @foreach($packages as $package)
       <div class="col-lg-4 col-md-6 mb-5">
         <a href="{{ route('user.package.detail', $package->slug) }}" style="text-decoration: none; color: inherit;">
-        <div class="card overflow-hidden shadow h-100">
+          <div class="card overflow-hidden shadow h-100">
 
-          {{-- Package Image --}}
-          <img class="card-img-top"
-            src="{{ asset('storage/' . $package->image) }}"
-            alt="{{ $package->image_alt ?? $package->name }}">
+            {{-- Package Image --}}
+            <img class="card-img-top"
+              src="{{ asset('storage/' . $package->image) }}"
+              alt="{{ $package->image_alt ?? $package->name }}">
 
-          <div class="card-body py-4 px-4 d-flex flex-column">
+            <div class="card-body py-4 px-4 d-flex flex-column">
 
-            {{-- Package Name --}}
-            <h4>
-              {{ $package->name }}
-            </h4>
+              {{-- Package Name --}}
+              <h4>
+                {{ $package->name }}
+              </h4>
 
-            {{-- Short Description --}}
-            <p class="flex-grow-1">
-              {{ ($package->short_description) }}
-            </p>
+              {{-- Short Description --}}
+              <p class="flex-grow-1">
+                {{ ($package->short_description) }}
+              </p>
 
-            {{-- Book Button --}}
-            <div  style="text-align: center;" class="mt-auto pt-3" >
-              <a href="{{ route('user.package.detail', $package->slug) }}" 
-                class="btn btn-primary btn-lg fn-btn-cta blue" >
-                Book A Ride 
-              </a>
+              {{-- Book Button --}}
+              <div style="text-align: center;" class="mt-auto pt-3">
+                <a href="{{ route('user.package.detail', $package->slug) }}"
+                  class="btn btn-primary btn-lg fn-btn-cta blue">
+                  Book A Ride
+                </a>
+              </div>
+
             </div>
-
           </div>
-        </div>
         </a>
       </div>
       @endforeach
@@ -183,9 +186,9 @@
       </div>
       <div class="col-md-4 mb-4">
         <div class="card overflow-hidden shadow">
-         <a data-bs-toggle="modal" data-bs-target="#gallery-1">
+          <a data-bs-toggle="modal" data-bs-target="#gallery-1">
             <img src="{{ asset('assets/img/gal-1.jpeg') }}" class="w-100" />
-           </a>
+          </a>
         </div>
       </div>
       <div class="col-md-4 mb-4">

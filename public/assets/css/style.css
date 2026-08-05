@@ -142,6 +142,10 @@ address {
   font-style: normal;
   line-height: inherit;
 }
+ul {
+    list-style: disc;
+    
+}
 
 ol,
 ul {
@@ -4832,7 +4836,8 @@ fieldset:disabled .btn {
 .navbar-brand {
   padding-top: 0.18213rem;
   padding-bottom: 0.18213rem;
-  margin-right: 1rem;
+  /* margin-right: 1rem; */
+  margin-right: 0 !important;
   font-size: calc(1.26738rem + 0.20859vw);
   white-space: nowrap;
 }
@@ -19789,9 +19794,7 @@ h3 {
   letter-spacing: 0;
   font-weight: 300 !important;
 }
-footer .container{
-  border-top: 1px solid #efefef;
-}
+
 
 .package .btn-lg {
   padding: 10px 20px !important;
