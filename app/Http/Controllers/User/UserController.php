@@ -20,13 +20,25 @@ class UserController extends Controller
         return view('user.landing', compact('packages'));
     }
 
-  
+
     public function thankyou()
     {
         return view('user.thankyou');
     }
-     public function paymentFailed()
+    public function paymentFailed()
     {
         return view('user.payment-failed');
+    }
+    public function terms()
+    {
+        return view('user.terms');
+    }
+    public function privacy()
+    {
+        return view('user.privacy');
+    }
+       public function refund()
+    {
+        return view('user.refund');
     }
 }
